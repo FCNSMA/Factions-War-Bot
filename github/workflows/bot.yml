@@ -1,0 +1,25 @@
+name: Run Factions Bot
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '*/10 * * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+    - name: Install dependencies
+      run: npm install
+    - name: Start bot with pm2
+      env:
+        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+      run: |
+        npm install -g pm2
+        pm2 start index.js --name factions-bot
+        pm2 save
+        pm2 list
