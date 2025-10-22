@@ -1,0 +1,11 @@
+{
+  "factions": {
+    "cosmic": { "legions": 0 },
+    "elysium": { "legions": 0 },
+    "galactic": { "legions": 0 },
+    "arcane": { "legions": 0 }
+  },
+  "territories": {},
+  "pendingMoves": [],
+  "lastDaily": 0
+}
